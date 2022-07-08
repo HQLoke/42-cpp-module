@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 15:38:26 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/07 17:56:45 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/08 10:26:13 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	main(void)
 			myNicePhone.displayPhoneBook();
 		else if (command.compare("EXIT") == 0)
 			break ;
-	}	
+	}
 	return (0);
 }

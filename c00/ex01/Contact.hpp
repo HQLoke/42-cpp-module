@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:22:09 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/07 15:22:05 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/08 10:22:24 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Contact
 {
 	public:
 		Contact();
+		Contact(const Contact &c1);
 		~Contact();
 		std::string firstName;
 		std::string lastName;

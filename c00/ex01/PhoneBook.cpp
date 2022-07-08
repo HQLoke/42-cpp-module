@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:22:06 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/07 17:56:32 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/08 10:30:29 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 PhoneBook::PhoneBook()
 {
-	contactCount = 0;
+	_contactCount = 0;
+}
+
+PhoneBook::PhoneBook(const PhoneBook &p1)
+{
+	(void)p1;
 }
 
 PhoneBook::~PhoneBook(){}
@@ -52,7 +57,6 @@ void PhoneBook::getContactInfo()
 	std::string	temp;
 	int			index;
 	
-	index = -1;
 	do
 	{
 		temp = getStringInput("Enter index 0-7 for contact info: ");
@@ -71,9 +75,9 @@ void PhoneBook::getContactInfo()
  */
 void PhoneBook::addContactInfo()
 {
-	if (contactCount != 8)
-		contactCount += 1;
-	for (int i = contactCount - 1; i > 0; i -= 1)	
+	if (_contactCount != 8)
+		_contactCount += 1;
+	for (int i = _contactCount - 1; i > 0; i -= 1)	
 		contactList[i] = contactList[i - 1];
 	contactList[0].firstName = getStringInput("First Name: ");
 	contactList[0].lastName = getStringInput("Last Name: ");

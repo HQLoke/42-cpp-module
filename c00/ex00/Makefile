@@ -1,6 +1,6 @@
 # Implicit variables
 CPP		 =	c++
-CPPFLAGS =	-Wall -Wextra -Werror -g -fsanitize=address -std=c++98
+CPPFLAGS =	-Wall -Wextra -Werror -g -fsanitize=address -std=c++98 -pedantic
 
 # Targets
 NAME	 =	megaphone

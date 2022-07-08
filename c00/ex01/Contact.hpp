@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:22:09 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/08 10:22:24 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/08 10:40:43 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <iostream>
 # include <string>
 
+/*
+ * Jaclyn's recommendation:
+ * Change all variables to private.
+ * Use setter and getter functions instead.
+ * Good practice and modularised code design.
+ */
 class Contact
 {
 	public:

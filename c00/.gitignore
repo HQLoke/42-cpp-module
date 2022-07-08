@@ -1,0 +1,6 @@
+# dSYM folder
+*.dSYM
+*/*.dSYM
+
+# vscode folder
+.vscode

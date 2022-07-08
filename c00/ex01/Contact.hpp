@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:22:09 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/08 10:40:43 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/08 10:51:13 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ class Contact
 		Contact();
 		Contact(const Contact &c1);
 		~Contact();
-		std::string firstName;
-		std::string lastName;
-		std::string nickname;
-		std::string phoneNumber;
-		std::string darkestSecret;
+		
+		std::string	firstName;
+		std::string	lastName;
+		std::string	nickname;
+		std::string	phoneNumber;
+		std::string	darkestSecret;
 };
 
 #endif

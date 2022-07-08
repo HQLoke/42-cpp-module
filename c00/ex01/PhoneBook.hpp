@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:22:11 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/08 10:29:47 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/08 10:54:52 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,18 @@ class PhoneBook
 		PhoneBook();
 		PhoneBook(const PhoneBook &p1);
 		~PhoneBook();
-		void addContactInfo();
-		void displayPhoneBook();
+		
+		void	addContactInfo();
+		void	displayPhoneBook();
+
 	private:
-		int _contactCount;
-		void putColumnStr(std::string string, int width);
-		void getContactInfo();
-		Contact contactList[8];
+		int		_contactCount;
+		Contact	_contactList[8];
+		
+		void	_putColumnStr(std::string string, int width);
+		void	_getContactInfo();
 };
 
-std::string getStringInput(const char *prompt);
+std::string	getStringInput(const char *prompt);
 
 #endif

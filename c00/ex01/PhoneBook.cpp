@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:22:06 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/08 10:30:29 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/08 10:52:28 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ PhoneBook::~PhoneBook(){}
  * Put the string in a given width space and right-justified.
  * Truncate the string if string length is more than 10.
  */ 
-void PhoneBook::putColumnStr(std::string string, int width)
+void PhoneBook::_putColumnStr(std::string string, int width)
 {
 	if (string.length() >= 10)
 	{
@@ -52,7 +52,7 @@ static bool isNumber(const std::string str)
 	return (true);
 }
 
-void PhoneBook::getContactInfo()
+void PhoneBook::_getContactInfo()
 {
 	std::string	temp;
 	int			index;
@@ -63,11 +63,11 @@ void PhoneBook::getContactInfo()
 		if (isNumber(temp) == true)
 			index = stoi(temp, 0, 10);
 	} while (isNumber(temp) != true || index < 0 || index > 7);
-	std::cout << "First Name: " << contactList[index].firstName << std::endl;
-	std::cout << "Last Name: " << contactList[index].lastName << std::endl;
-	std::cout << "Nickname: " << contactList[index].nickname << std::endl;
-	std::cout << "Phone Number: " << contactList[index].phoneNumber << std::endl;
-	std::cout << "Darkest Secret: " << contactList[index].darkestSecret << std::endl;
+	std::cout << "First Name: " << _contactList[index].firstName << std::endl;
+	std::cout << "Last Name: " << _contactList[index].lastName << std::endl;
+	std::cout << "Nickname: " << _contactList[index].nickname << std::endl;
+	std::cout << "Phone Number: " << _contactList[index].phoneNumber << std::endl;
+	std::cout << "Darkest Secret: " << _contactList[index].darkestSecret << std::endl;
 }
 
 /*
@@ -78,12 +78,12 @@ void PhoneBook::addContactInfo()
 	if (_contactCount != 8)
 		_contactCount += 1;
 	for (int i = _contactCount - 1; i > 0; i -= 1)	
-		contactList[i] = contactList[i - 1];
-	contactList[0].firstName = getStringInput("First Name: ");
-	contactList[0].lastName = getStringInput("Last Name: ");
-	contactList[0].nickname = getStringInput("Nickname: ");
-	contactList[0].phoneNumber = getStringInput("Phone Number: ");
-	contactList[0].darkestSecret = getStringInput("Darkest Secret: ");
+		_contactList[i] = _contactList[i - 1];
+	_contactList[0].firstName = getStringInput("First Name: ");
+	_contactList[0].lastName = getStringInput("Last Name: ");
+	_contactList[0].nickname = getStringInput("Nickname: ");
+	_contactList[0].phoneNumber = getStringInput("Phone Number: ");
+	_contactList[0].darkestSecret = getStringInput("Darkest Secret: ");
 }
 
 /*
@@ -96,14 +96,14 @@ void PhoneBook::displayPhoneBook()
 	std::cout << std::string(45, '-') << std::endl;
 	for (int i = 0; i < 8; i += 1)
 	{
-		putColumnStr(std::to_string(i), 10);
-		putColumnStr(contactList[i].firstName, 10);
-		putColumnStr(contactList[i].lastName, 10);
-		putColumnStr(contactList[i].nickname, 10);
+		_putColumnStr(std::to_string(i), 10);
+		_putColumnStr(_contactList[i].firstName, 10);
+		_putColumnStr(_contactList[i].lastName, 10);
+		_putColumnStr(_contactList[i].nickname, 10);
 		std::cout << "|" << std::endl;
 	}
 	std::cout << std::string(45, '-') << std::endl;
-	getContactInfo();
+	_getContactInfo();
 }
 
 /*

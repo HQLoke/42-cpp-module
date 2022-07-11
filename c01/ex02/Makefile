@@ -6,11 +6,11 @@ CXXFLAGS =	-Wall -Wextra -Werror -std=c++98 -pedantic -g3 -fsanitize=address
 INC		 = -I.
 
 # Executable name
-EXEC	 =	zombie
+EXEC	 =	main
 
 # Source files
 MAIN     =  main.cpp
-SRC		 =	Zombie.cpp zombieHorde.cpp
+SRC		 =	
 OBJ      =  $(SRC:.cpp=.o)
 
 all: $(EXEC)

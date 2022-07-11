@@ -1,10 +1,8 @@
 # dSYM folder
 *.dSYM
-c0*/*.dSYM
-c0*/ex0*/*.dSYM
 
 # object files
-c0*/ex0*/*.o
+*.o
 
 # vscode folder
-c0*/.vscode
+.vscode

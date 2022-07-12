@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 14:06:30 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/12 20:57:17 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/12 21:13:47 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed() : _numValue(0)
 Fixed::Fixed(const Fixed &f)
 {
 	std::cout << "Copy constructor called\n";
-	this->_numValue = f.getRawBits();
+	*this = f;
 }
 
 Fixed& Fixed::operator= (const Fixed &f)

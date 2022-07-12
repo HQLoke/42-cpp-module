@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 15:51:07 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/11 18:44:48 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/12 09:52:06 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanB
 
 	private:
 		std::string	_name;
-		Weapon		*_weapon;
+		Weapon		*_pWeapon;
 };
 
 #endif

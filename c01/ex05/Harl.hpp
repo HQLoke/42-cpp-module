@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 09:39:15 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/12 10:37:05 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/12 12:04:06 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class Harl
 
 	private:
 		void	_debug(void);
-		void	_error(void);
 		void	_info(void);
 		void	_warning(void);
+		void	_error(void);
 };
 
 #endif

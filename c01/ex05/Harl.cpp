@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 09:39:02 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/12 11:51:06 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/12 12:05:10 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Harl::~Harl(){}
  */
 void	Harl::complain(std:: string level)
 {
-	const char	*levels[] = {"debug", "error", "info", "warning"};
+	const char	*levels[] = {"DEBUG", "ERROR", "INFO", "WARNING"};
 	const int	num_level = sizeof(levels) / sizeof(levels[0]);
 	void		(Harl::*func[])(void) = {&Harl::_debug, &Harl::_error, &Harl::_info,
 										 &Harl::_warning};
@@ -53,11 +53,6 @@ void	Harl::_debug(void)
 			  << "pickle-special-ketchup burger. I really do!\n";
 }
 
-void	Harl::_error(void)
-{
-	std::cout << "This is unacceptable! I want to speak to the manager now.\n";
-}
-
 void	Harl::_info(void)
 {
 	std::cout << "I cannot believe adding extra bacon costs more money. You "
@@ -70,4 +65,9 @@ void	Harl::_warning(void)
 	std::cout << "I think I deserve to have some extra bacon for free. I've been "
 			  << "coming for years whereas you started working here since last "
 			  << "month\n";
+}
+
+void	Harl::_error(void)
+{
+	std::cout << "This is unacceptable! I want to speak to the manager now.\n";
 }

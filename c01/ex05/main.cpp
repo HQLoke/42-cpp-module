@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 10:30:12 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/12 11:52:23 by hloke            ###   ########.fr       */
+/*   Updated: 2022/07/12 12:03:44 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cout << "Usage: ./harl [debug/error/info/warning]\n";
+		std::cout << "Usage: ./harl [DEBUG/ERROR/INFO/WARNING]\n";
 		exit (EXIT_FAILURE);
 	}
 	Harl idiot;

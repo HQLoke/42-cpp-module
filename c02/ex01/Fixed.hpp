@@ -5,29 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:06:59 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/13 09:35:48 by hloke            ###   ########.fr       */
+/*   Created: 2022/07/12 21:04:50 by hloke             #+#    #+#             */
+/*   Updated: 2022/07/12 21:28:11 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
+# include <cmath>
 # include <iostream>
 
 class Fixed
 {
 	public:
 		Fixed();
-		Fixed(const Fixed &fixed);
-		Fixed& operator= (const Fixed &fixed);
+		Fixed(const Fixed &f);
+		Fixed& operator= (const Fixed &f);
 		~Fixed();
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 
 	private:
-		int					_fixedPointVal;
+		int					_numValue;
 		static const int	_sFracBits = 8;
 };
 

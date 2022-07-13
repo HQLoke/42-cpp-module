@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 14:06:30 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/13 09:36:42 by hloke            ###   ########.fr       */
+/*   Created: 2022/07/12 21:03:43 by hloke             #+#    #+#             */
+/*   Updated: 2022/07/12 21:24:20 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,21 @@
 
 //? Default constructor, copy constructor, copy assignment operator & destructor
 
-Fixed::Fixed() : _fixedPointVal(0)
+Fixed::Fixed()
+{}
+
+Fixed::Fixed(const Fixed &f)
 {
-	std::cout << "Default constructor called\n";
+	
 }
 
-Fixed::Fixed(const Fixed &fixed)
+Fixed& Fixed::operator= (const Fixed &f)
 {
-	std::cout << "Copy constructor called\n";
-	*this = fixed;
+	
 }
 
-Fixed& Fixed::operator= (const Fixed &fixed)
-{
-	std::cout << "Copy assignment operator called\n";
-	if (this == &fixed)
-		return *this;
-	this->_fixedPointVal = fixed.getRawBits();
-	return *this;
-}
+Fixed::~Fixed(){}
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called\n";
-}
-		
 //? Public methods
 
-int		Fixed::getRawBits(void) const
-{
-	std::cout << "getRawBits member function called\n";
-	return _fixedPointVal;
-}
-
-void	Fixed::setRawBits(int const raw)
-{
-	this->_fixedPointVal = raw;
-}
-
 //? Private methods
-

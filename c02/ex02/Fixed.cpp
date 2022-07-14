@@ -88,31 +88,24 @@ bool				Fixed::operator!=	( Fixed const & rhs )
 	return (false);
 }
 
-Fixed &				Fixed::operator+	( Fixed const & rhs )
+Fixed				Fixed::operator+	( Fixed const & rhs )
 {
-	(*this)._fixedPointVal += rhs._fixedPointVal;
-	return (*this);
+	return (Fixed(this->toFloat() + rhs.toFloat()));
 }
 
-Fixed &				Fixed::operator-	( Fixed const & rhs )
+Fixed 				Fixed::operator-	( Fixed const & rhs )
 {
-	(*this)._fixedPointVal -= rhs._fixedPointVal;
-	return (*this);
+	return (Fixed(this->toFloat() - rhs.toFloat()));
 }
 
-Fixed &				Fixed::operator*	( Fixed const & rhs )
+Fixed 				Fixed::operator*	( Fixed const & rhs )
 {
-	long	tmp;
-	
-	tmp = (this->_fixedPointVal * rhs._fixedPointVal) >> _sFracBits;
-	this->_fixedPointVal = (int)tmp;
-	return (*this);
+	return (Fixed(this->toFloat() * rhs.toFloat()));
 }
 
-Fixed &				Fixed::operator/	( Fixed const & rhs )
+Fixed 				Fixed::operator/	( Fixed const & rhs )
 {
-	this->_fixedPointVal = (this->_fixedPointVal << _sFracBits) / rhs._fixedPointVal;
-	return (*this);
+	return (Fixed(this->toFloat() / rhs.toFloat()));
 }
 
 Fixed &				Fixed::operator++	()

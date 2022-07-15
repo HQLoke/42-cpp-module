@@ -23,6 +23,7 @@ $(EXEC): $(MAIN) $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
+	$(RM) -rf *dSYM
 
 fclean: clean
 	$(RM) $(EXEC)

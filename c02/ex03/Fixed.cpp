@@ -22,7 +22,7 @@ Fixed::Fixed	( float const f_val )
 
 Fixed::Fixed	( const Fixed & src )
 {
-	*this = src;
+	this->_fixedPointVal = src.getRawBits();
 }
 
 /*

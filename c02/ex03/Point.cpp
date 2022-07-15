@@ -30,6 +30,9 @@ Point::~Point()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
+/*
+ * Usage of *this = rhs is restricted to operator= only.
+ */
 Point &				Point::operator=( Point const & rhs )
 {
 	if ( this != &rhs )

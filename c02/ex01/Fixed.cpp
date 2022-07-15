@@ -43,7 +43,7 @@ Fixed::Fixed(const float f_val)
 Fixed::Fixed(const Fixed &fixed)
 {
 	std::cout << "Copy constructor called\n";
-	*this = fixed;
+	this->_fixedPointVal = fixed.getRawBits();
 }
 
 Fixed& Fixed::operator= (const Fixed &fixed)

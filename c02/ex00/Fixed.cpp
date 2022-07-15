@@ -19,10 +19,13 @@ Fixed::Fixed() : _fixedPointVal(0)
 	std::cout << "Default constructor called\n";
 }
 
+/*
+ * Prevent from using *this = src as it causes stack overflow.
+ */
 Fixed::Fixed(const Fixed &fixed)
 {
 	std::cout << "Copy constructor called\n";
-	*this = fixed;
+	this->_fixedPointVal = fixed.getRawBits();
 }
 
 Fixed& Fixed::operator= (const Fixed &fixed)

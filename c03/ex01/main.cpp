@@ -21,11 +21,13 @@ void	action(ScavTrap &scav)
 
 int main(void)
 {
-	ScavTrap scav("GUARDIAN"); // Constructor
+	ScavTrap blank;			   // Blank constructor
+	ScavTrap scav("GUARDIAN"); // String constructor
 	ScavTrap scav_dup1(scav);  // Copy constructor
 	ScavTrap scav_dup2;      
 	scav_dup2 = scav;          // Copy assignment operator
 
+	action(blank);
 	action(scav);
 	action(scav_dup1);
 	action(scav_dup2);

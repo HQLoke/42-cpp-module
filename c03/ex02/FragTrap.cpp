@@ -4,19 +4,22 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
-	std::cout << "FragTrap: Constructor has been called\n";
-
+	std::cout << "FragTrap: Blank constructor has been called\n";
+	ClapTrap::setName("");
+	ClapTrap::setHitPoints(100);
+	ClapTrap::setEnergyPoints(100);
+	ClapTrap::setAttackDamage(30);
 }
 
 /*
  * I've decided to add the scope resolution operator (::) to specify which class
  * method I'm using.
  */
-FragTrap::FragTrap(std::string const name)
+FragTrap::FragTrap(std::string const name) : ClapTrap(name)
 {
-	std::cout << "FragTrap: Constructor has been called\n";
+	std::cout << "FragTrap: String constructor has been called\n";
 	ClapTrap::setName(name);
 	ClapTrap::setHitPoints(100);
 	ClapTrap::setEnergyPoints(100);

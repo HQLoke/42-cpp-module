@@ -6,19 +6,25 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "Constructor has been called\n";
+	std::cout << "ClapTrap: Blank constructor has been called\n";
+	this->setName("");
+	this->setHitPoints(10);
+	this->setEnergyPoints(10);
+	this->setAttackDamage(0);
 }
 
 ClapTrap::ClapTrap( std::string const name ) 
-: _hitPoints (10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Constructor has been called\n";
+	std::cout << "ClapTrap: String constructor has been called\n";
 	this->setName(name);
+	this->setHitPoints(10);
+	this->setEnergyPoints(10);
+	this->setAttackDamage(0);
 }
 
 ClapTrap::ClapTrap( const ClapTrap & src )
 {
-	std::cout << "Copy constructor has been called\n";
+	std::cout << "ClapTrap: Copy constructor has been called\n";
 	this->_name = src.getName();
 	this->_hitPoints = src.getHitPoints();
 	this->_energyPoints = src.getEnergyPoints();
@@ -32,7 +38,7 @@ ClapTrap::ClapTrap( const ClapTrap & src )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor has been called\n";
+	std::cout << "ClapTrap: Destructor has been called\n";
 }
 
 
@@ -42,7 +48,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 {
-	std::cout << "Copy assignment operator has been called\n";
+	std::cout << "ClapTrap: Copy assignment operator has been called\n";
 	if ( this != &rhs )
 	{
 		this->_name = rhs.getName();

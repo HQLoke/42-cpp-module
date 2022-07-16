@@ -4,19 +4,22 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
-	std::cout << "ScavTrap: Constructor has been called\n";
-
+	std::cout << "ScavTrap: Blank constructor has been called\n";
+	ClapTrap::setName("");
+	ClapTrap::setHitPoints(100);
+	ClapTrap::setEnergyPoints(50);
+	ClapTrap::setAttackDamage(20);
 }
 
 /*
  * I've decided to add the scope resolution operator (::) to specify which class
  * method I'm using.
  */
-ScavTrap::ScavTrap(std::string const name)
+ScavTrap::ScavTrap(std::string const name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap: Constructor has been called\n";
+	std::cout << "ScavTrap: String constructor has been called\n";
 	ClapTrap::setName(name);
 	ClapTrap::setHitPoints(100);
 	ClapTrap::setEnergyPoints(50);

@@ -22,11 +22,13 @@ void	action(FragTrap &frag)
 
 int main(void)
 {
-	FragTrap frag("FRAGGER");  // Constructor
+	FragTrap blank;			   // Blank constructor
+	FragTrap frag("FRAGGER");  // String constructor
 	FragTrap frag_dup1(frag);  // Copy constructor
 	FragTrap frag_dup2;      
 	frag_dup2 = frag;          // Copy assignment operator
 
+	action(blank);
 	action(frag);
 	action(frag_dup1);
 	action(frag_dup2);

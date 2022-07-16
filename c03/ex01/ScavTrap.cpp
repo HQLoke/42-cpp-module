@@ -7,7 +7,6 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap: Blank constructor has been called\n";
-	ClapTrap::setName("");
 	ClapTrap::setHitPoints(100);
 	ClapTrap::setEnergyPoints(50);
 	ClapTrap::setAttackDamage(20);
@@ -20,7 +19,6 @@ ScavTrap::ScavTrap() : ClapTrap()
 ScavTrap::ScavTrap(std::string const name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap: String constructor has been called\n";
-	ClapTrap::setName(name);
 	ClapTrap::setHitPoints(100);
 	ClapTrap::setEnergyPoints(50);
 	ClapTrap::setAttackDamage(20);

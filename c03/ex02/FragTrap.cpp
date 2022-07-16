@@ -7,7 +7,6 @@
 FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << "FragTrap: Blank constructor has been called\n";
-	ClapTrap::setName("");
 	ClapTrap::setHitPoints(100);
 	ClapTrap::setEnergyPoints(100);
 	ClapTrap::setAttackDamage(30);
@@ -20,7 +19,6 @@ FragTrap::FragTrap() : ClapTrap()
 FragTrap::FragTrap(std::string const name) : ClapTrap(name)
 {
 	std::cout << "FragTrap: String constructor has been called\n";
-	ClapTrap::setName(name);
 	ClapTrap::setHitPoints(100);
 	ClapTrap::setEnergyPoints(100);
 	ClapTrap::setAttackDamage(30);

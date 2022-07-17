@@ -7,9 +7,9 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap: Blank constructor has been called\n";
-	ClapTrap::setHitPoints(100);
+	// ClapTrap::setHitPoints(100);
 	ClapTrap::setEnergyPoints(50);
-	ClapTrap::setAttackDamage(20);
+	// ClapTrap::setAttackDamage(20);
 }
 
 /*

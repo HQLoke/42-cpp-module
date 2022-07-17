@@ -8,7 +8,7 @@ FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << "FragTrap: Blank constructor has been called\n";
 	ClapTrap::setHitPoints(100);
-	ClapTrap::setEnergyPoints(100);
+	// ClapTrap::setEnergyPoints(100);
 	ClapTrap::setAttackDamage(30);
 }
 

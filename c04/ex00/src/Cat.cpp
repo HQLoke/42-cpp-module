@@ -6,7 +6,7 @@
 
 Cat::Cat()
 {
-	std::cout << "Cat: Blank constructor\n";
+	std::cout << "Cat: Default constructor\n";
 	Animal::setType("Cat");
 }
 

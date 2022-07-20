@@ -6,7 +6,7 @@
 
 Dog::Dog()
 {
-	std::cout << "Dog: Blank constructor\n";
+	std::cout << "Dog: Default constructor\n";
 	Animal::setType("Dog");
 }
 

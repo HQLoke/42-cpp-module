@@ -10,18 +10,24 @@
  */
 int	main(void)
 {
-	// const Animal	*meta = new Animal();
-	// const Animal	*i = new Cat();
-	// const Animal	*j = new Dog();
+	std::cout << "----------------------------------------------" << std::endl;
 
-	// std::cout << i->getType() << " " << std::endl;
-	// std::cout << j->getType() << " " << std::endl;
-	// meta->makeSound();
-	// i->makeSound();
-	// j->makeSound();
+	const Animal	*meta = new Animal();
+	const Animal	*i = new Cat();
+	const Animal	*j = new Dog();
 
+	std::cout << i->getType() << " " << std::endl;
+	std::cout << j->getType() << " " << std::endl;
+	meta->makeSound();
+	i->makeSound();
+	j->makeSound();
+
+	std::cout << "----------------------------------------------" << std::endl;
+	
 	const WrongAnimal *nonmeta = new WrongCat();
 	nonmeta->makeSound();
 
 	return (0);
+
+	std::cout << "----------------------------------------------" << std::endl;
 }

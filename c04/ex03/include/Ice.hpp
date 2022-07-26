@@ -16,10 +16,11 @@ class Ice : public AMateria
 
 		Ice &		operator=( Ice const & rhs );
 
+		AMateria	*clone() const;
+		void		use( ICharacter & target );
+
 	private:
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Ice const & i );
 
 #endif /* ************************************************************* ICE_H */

@@ -16,10 +16,15 @@ class MateriaSource : public IMateriaSource
 
 		MateriaSource &		operator=( MateriaSource const & rhs );
 
+		AMateria	*createMateria( std::string const & mat );
+		void		learnMateria( AMateria *mat );
+
 	private:
+
+		AMateria	*_learnedMateria[4];
+		int			_numMateria;
 
 };
 
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i );
 
 #endif /* *************************************************** MATERIASOURCE_H */

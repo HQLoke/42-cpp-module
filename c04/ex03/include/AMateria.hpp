@@ -22,14 +22,12 @@ class AMateria
 		virtual AMateria	*clone	() const = 0;
 		virtual void		use		( ICharacter & target ) = 0;
 		std::string const &	getType	() const;
-
-	protected:
+		void				setType ( std::string type );
+				
+	private:
+	
 		std::string			_type;
 
-	private:
-
 };
-
-std::ostream &			operator<<( std::ostream & o, AMateria const & i );
 
 #endif /* ******************************************************** AMATERIA_H */

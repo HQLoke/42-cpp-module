@@ -23,6 +23,4 @@ class Cure : public AMateria
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
-
 #endif /* ************************************************************ CURE_H */

@@ -4,12 +4,13 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-MateriaSource::MateriaSource()
+MateriaSource::MateriaSource() : _numMateria(0)
 {
 }
 
 MateriaSource::MateriaSource( const MateriaSource & src )
 {
+	(void)src;
 }
 
 
@@ -28,24 +29,38 @@ MateriaSource::~MateriaSource()
 
 MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		(void)rhs;
+	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+AMateria	*MateriaSource::createMateria( std::string const & type )
+{
+	for (int i = 0; i < 4; i += 1)
+	{
+		if (this->_learnedMateria[i]->getType() == type)
+			return (this->_learnedMateria[i]->clone());
+	}
+	std::cout << "Materia type <" << type << "> not found\n";
+	return (NULL);
+}
+
+void		MateriaSource::learnMateria( AMateria *mat )
+{
+	if (this->_numMateria > 4)
+	{
+		std::cout << "Slot full. Cannot learn new Materia.\n";
+		return ;
+	}
+	this->_learnedMateria[this->_numMateria] = mat;
+	this->_numMateria += 1;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

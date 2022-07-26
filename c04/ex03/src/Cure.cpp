@@ -4,13 +4,12 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cure::Cure()
+Cure::Cure() : AMateria("cure")
 {
 }
 
-Cure::Cure( const Cure & src )
+Cure::Cure( const Cure & src ) : AMateria(src)
 {
-	(void)src;
 }
 
 
@@ -31,22 +30,27 @@ Cure &				Cure::operator=( Cure const & rhs )
 {
 	if ( this != &rhs )
 	{
-		(void)rhs;
+		AMateria::operator=(rhs);
 	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Cure const & i )
-{
-	// o << "Value = " << i.getValue();
-	(void)i;
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+AMateria	*Cure::clone() const
+{
+	AMateria	*clone;
+
+	clone = new Cure();
+	return (clone);
+}
+
+void		Cure::use( ICharacter & target )
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}
 
 
 /*

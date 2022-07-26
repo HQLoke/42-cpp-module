@@ -4,18 +4,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+AMateria::AMateria() : _type("")
 {
 }
 
-AMateria::AMateria( std::string const & type )
+AMateria::AMateria( std::string const & type ) : _type(type)
 {
-	this->_type = type;
 }
 
 AMateria::AMateria( const AMateria & src )
 {
-	this->_type = src._type;
+	this->setType(src.getType());
 }
 
 
@@ -36,17 +35,10 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_type = rhs._type;
+		this->setType(rhs.getType());
 	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, AMateria const & i )
-{
-	o << "The Materia type is " << i.getType() << std::endl;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -60,6 +52,11 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 std::string const &		AMateria::getType() const
 {
 	return (this->_type);
+}
+
+void					AMateria::setType( std::string type )
+{
+	this->_type = type;
 }
 
 /* ************************************************************************** */

@@ -11,7 +11,7 @@ EXEC		=	interface
 # Source files
 MAIN     	=	main.cpp
 SRCDIR		=   src
-SRC		 	=	AMateria.cpp Cure.cpp #Character.cpp Ice.cpp MateriaSource.cpp
+SRC		 	=	AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJDIR		=   obj
 OBJ      	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 

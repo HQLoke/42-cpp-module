@@ -2,7 +2,9 @@
 
 int main(void)
 {
-	Bureaucrat first(1000, "first");
-
+	Bureaucrat wtf(1, "WTF");
+	wtf.setGrade(10);
+	wtf.gradeIncrement(9);
+	std::cout << wtf.getGrade() << std::endl;
 	return (0);
 }

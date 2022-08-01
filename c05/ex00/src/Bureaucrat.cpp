@@ -11,7 +11,17 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat( int grade, std::string const name )
 : _grade(grade), _name(name)
 {
-	
+	try
+	{
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else if (grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat & src )
@@ -55,14 +65,34 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void				Bureaucrat::gradeIncrement()
+void				Bureaucrat::gradeIncrement( int amount )
 {
-
+	try
+	{
+		if (this->_grade - amount < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else
+			this->_grade -= amount;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
-void				Bureaucrat::gradeDecrement()
+void				Bureaucrat::gradeDecrement( int amount )
 {
-
+	try
+	{
+		if (this->_grade + amount > 150)
+			throw Bureaucrat::GradeTooLowException();
+		else
+			this->_grade += amount;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 /*
@@ -90,3 +120,13 @@ void				Bureaucrat::setName	( std::string const name )
 }
 
 /* ************************************************************************** */
+
+const char *		Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade too high");
+}
+
+const char *		Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade too low");
+}

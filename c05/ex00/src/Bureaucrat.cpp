@@ -11,17 +11,10 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat( int grade, std::string const name )
 : _grade(grade), _name(name)
 {
-	try
-	{
-		if (grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else if (grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-	}
-	catch(const std::exception & e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat & src )

@@ -6,12 +6,12 @@ CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic #-g3 -fsanitize=address
 INC		 	=	-Iinclude
 
 # Executable name
-EXEC		=	
+EXEC		=	form
 
 # Source files
 MAIN     	=	main.cpp
 SRCDIR		=   src
-SRC		 	=	
+SRC		 	=	Bureaucrat.cpp Form.cpp
 OBJDIR		=   obj
 OBJ      	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 

@@ -88,6 +88,11 @@ void				Bureaucrat::gradeDecrement( int amount )
 	}
 }
 
+void				Bureaucrat::signForm( Form & f )
+{
+	f.beSigned(*this);
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

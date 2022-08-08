@@ -7,7 +7,7 @@
 # include <iostream>
 # include <string>
 
-enum e_ScalarType
+enum e_Macro
 {
 	CHAR_TYPE = 1,
 	INT_TYPE = 2,
@@ -25,8 +25,6 @@ class Converter
 		~Converter();
 
 		void				printResults();
-		int					scalarTypeFinder(std::string str);
-		void				storeValue();
 
 		const std::string	getStringLiteral() const;
 		int					getScalarType() const;	
@@ -42,13 +40,15 @@ class Converter
 
 		const std::string	_stringLiteral;
 		int					_scalarType;
-		bool				_isNeg;
+		int					_sign;
 		unsigned short		_precision;
-		char				_charValue;
-		int					_intValue;
-		float				_floatValue;
-		double				_doubleValue;
-	
+
+		void				_handleChar();
+		bool				_handleDot( std::string &temp );
+		void				_handleFloat( std::string &temp );
+		void				_handleInt( std::string &temp );
+		void				_handleSign( std::string &temp );
+		bool				_handleSpecialCase( std::string &temp );
 	
 };
 

@@ -35,6 +35,11 @@
 // 	}
 // }
 
+void	nani(char c)
+{
+	std::cout << c;
+}
+
 int main(int ac, char **av)
 {
 	if (ac != 2)
@@ -44,6 +49,5 @@ int main(int ac, char **av)
 	}
 	// testScalarTypeFinder();
 	Converter what(av[1]);
-	what.storeValue();
 	what.printResults();
 }

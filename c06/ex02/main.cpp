@@ -43,54 +43,6 @@ void	identify(Base *p)
 
 void	identify(Base &p)
 {
-	// bool	match;
-
-	// match = true;
-	// try
-	// {
-	// 	A	&a = dynamic_cast<A&>(p);
-	// 	(void)a;
-	// }
-	// catch (std::bad_cast &e)
-	// {
-	// 	match = false;
-	// }
-	// catch (std::N)
-	// if (match == true)
-	// {
-	// 	std::cout << "Object referenced to by p: \"A\"" << std::endl;
-	// 	return ;
-	// }
-	// match = true;
-	// try
-	// {
-	// 	B	&b = dynamic_cast<B&>(p);
-	// 	(void)b;
-	// }
-	// catch (std::bad_cast &e)
-	// {
-	// 	match = false;
-	// }
-	// if (match == true)
-	// {
-	// 	std::cout << "Object referenced to by p: \"B\"" << std::endl;
-	// 	return ;
-	// }
-	// match = true;
-	// try
-	// {
-	// 	C	&c = dynamic_cast<C&>(p);
-	// 	(void)c;
-	// }
-	// catch (std::bad_cast &e)
-	// {
-	// 	match = false;
-	// }
-	// if (match == true)
-	// {
-	// 	std::cout << "Object referenced to by p: \"C\"" << std::endl;
-	// 	return ;
-	// }
 	identify(&p);
 }
 
@@ -107,7 +59,7 @@ int main(void)
 	identify(c);
 	identify(d);
 
-	std::cout << "\n\n" << std::endl;
+	std::cout << "\n" << std::endl;
 
 	std::cout << "Using reference as argument" << std::endl;
 	identify(*a);

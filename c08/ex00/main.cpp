@@ -18,7 +18,7 @@ int	main(void)
 		std::array<int, size>::iterator ite;
 		try
 		{
-			ite = easyfind(arr, i);
+			ite = easyFind(arr, i);
 		}
 		catch (std::exception & e)
 		{
@@ -42,7 +42,7 @@ int	main(void)
 		std::vector<int>::iterator ite;
 		try
 		{
-			ite = easyfind(vec, i);
+			ite = easyFind(vec, i);
 		}
 		catch (std::exception & e)
 		{
@@ -66,7 +66,7 @@ int	main(void)
 		std::deque<int>::iterator ite;
 		try
 		{
-			ite = easyfind(deq, i);
+			ite = easyFind(deq, i);
 		}
 		catch (std::exception & e)
 		{
@@ -90,7 +90,7 @@ int	main(void)
 		std::forward_list<int>::iterator ite;
 		try
 		{
-			ite = easyfind(forlist, i);
+			ite = easyFind(forlist, i);
 		}
 		catch (std::exception & e)
 		{
@@ -114,7 +114,7 @@ int	main(void)
 		std::list<int>::iterator ite;
 		try
 		{
-			ite = easyfind(ls, i);
+			ite = easyFind(ls, i);
 		}
 		catch (std::exception & e)
 		{

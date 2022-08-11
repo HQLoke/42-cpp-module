@@ -9,7 +9,7 @@
  *	Without typename, what follows would be considered a static member.
  */
 template <typename T>
-typename T::iterator	easyfind(T& container, int val)
+typename T::iterator	easyFind(T& container, int val)
 {
 	typename T::iterator	ret;
 	

@@ -1,16 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 15:06:51 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/08 16:21:43 by hloke            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Zombie.hpp"
+#include "colour.h"
 
 /*
  * This exercise is about understanding heap vs stack memory.
@@ -19,10 +8,20 @@
  */
 int main(void)
 {
+	std::cout << "|-------------------------|" << std::endl;
+	std::cout << "|       Heap memory       |" << std::endl;
+	std::cout << "|-------------------------|" << std::endl;
 	Zombie *wild;
 
 	wild = newZombie("Heaper Jibber");
 	wild->announce();
-	randomChump("I'm stacked");
+	std::cout << RED << "Deleting zombie..." << RESET << std::endl;
 	delete wild;
+
+	std::cout << std::endl;
+	std::cout << "|--------------------------|" << std::endl;
+	std::cout << "|       Stack memory       |" << std::endl;
+	std::cout << "|--------------------------|" << std::endl;
+	randomChump("Stacky Maloney");
+	std::cout << RED << "Deleting zombie..." << RESET << std::endl;
 }

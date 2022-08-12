@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/11 15:48:31 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/11 17:48:18 by hloke            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <iostream>
 #include "HumanA.hpp"
 #include "HumanB.hpp"
@@ -24,6 +12,9 @@
  */
 int main(void)
 {
+	std::cout << "|-----------------------------------|" << std::endl;
+	std::cout << "|       Test given in the PDF       |" << std::endl;
+	std::cout << "|-----------------------------------|" << std::endl;
 	{
 		Weapon club = Weapon("crude spiked club");
 
@@ -41,6 +32,40 @@ int main(void)
 		club.setType("some other type of club");
 		jim.attack();
 	}
+	
+	std::cout << std::endl;
+	std::cout << "|-----------------------------------------------|" << std::endl;
+	std::cout << "|       New weapons imported from Teleria       |" << std::endl;
+	std::cout << "|-----------------------------------------------|" << std::endl;
+	Weapon	*dagger = new Weapon("kamish's wrath");
+	Weapon	*sword = new Weapon("oathkeeper");
+	
+	HumanA	*primary = new HumanA("Sung Jin Woo", *dagger);
+	primary->attack();
+	dagger->setType("venom fang");
+	primary->attack();
 
+	HumanB	*secondary = new HumanB("Sorin Markov");
+	secondary->setWeapon(*sword);
+	secondary->attack();
+	sword->setType("parasite blade");
+	secondary->attack();
+
+	HumanB	*extra = new HumanB("Shadow Lord");
+	extra->setWeapon(*dagger);
+	extra->attack();
+	extra->setWeapon(*sword);
+	extra->attack();
+	
+	std::cout << "\n[Combo attack]" << std::endl;
+	primary->attack();
+	secondary->attack();
+	extra->attack();
+
+	delete dagger;
+	delete sword;
+	delete primary;
+	delete secondary;
+	delete extra;
 	return (0);
 }

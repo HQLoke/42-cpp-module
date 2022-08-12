@@ -15,6 +15,7 @@ $(EXEC): $(MAIN) $(OBJ)
 
 clean:
 	$(RM) *.replace *.test $(EXEC)
+	$(RM) -rf *.dSYM
 
 re: fclean all
 

@@ -3,14 +3,14 @@ CXX	    	=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic -g3 -fsanitize=address
 
 # Headers and libraries
-INC		 	=	-I..
+INC		 	=	-I../include
 
 # Executable name
 EXEC		=	test
 
 # Source files
 MAIN     	=	test.cpp
-SRCDIR		=   ../
+SRCDIR		=   ../src/
 SRC			=	$(filter-out $(SRCDIR)/main.cpp, $(wildcard $(SRCDIR)/*.cpp))
 
 # Colour and format

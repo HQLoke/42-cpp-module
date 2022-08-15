@@ -1,4 +1,4 @@
-#include "../Fixed.hpp"
+#include "../include/Fixed.hpp"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -405,7 +405,7 @@ void	test_divide(void)
 		Fixed b(i_val2[i]);
 
 		a = a / b;
-		if (a.toFloat() == (i_val1[i] / i_val2[i]))
+		if ( abs(a.toFloat() - (i_val1[i] / i_val2[i])) < (1 / pow(2, 8)) )
 			printf("OK!\n");
 		else
 		{

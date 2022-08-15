@@ -1,23 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Harl.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 09:39:02 by hloke             #+#    #+#             */
-/*   Updated: 2022/07/12 12:05:10 by hloke            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Harl.hpp"
 
-//? Constructor & Destructor
+Harl::Harl()
+{
+}
 
-Harl::Harl(){}
-Harl::~Harl(){}
-
-//? Public Methods
+Harl::~Harl()
+{
+}
 
 /*
  * Must explicitly use scope resolution operator (::) for name of member function
@@ -44,8 +33,6 @@ void	Harl::complain(std:: string level)
 	if (i == num_level)
 		std::cout << "????? WTF ARE YOU TALKING ABOUT ?????\n";
 }
-
-//? Private Methods
 
 void	Harl::_debug(void)
 {

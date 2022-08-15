@@ -15,15 +15,15 @@ class Point
 		Point( Point const & src );
 		~Point();
 
-		Point			&	operator=	( Point const & rhs );
+		Point &		operator=( Point const & rhs );
 		
-		float				getXFloat();
-		float				getYFloat();
+		float	getXFloat();
+		float	getYFloat();
 
 	private:
 
-		Fixed	const	_x;
-		Fixed	const	_y;
+		Fixed const		_x;
+		Fixed const		_y;
 
 };
 

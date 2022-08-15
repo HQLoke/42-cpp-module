@@ -7,7 +7,7 @@ int main(int ac, char **av)
 		std::cout << "Usage: ./harl [DEBUG/ERROR/INFO/WARNING]\n";
 		exit (EXIT_FAILURE);
 	}
-	Harl idiot;
+	Harl	idiot;
 	idiot.complain(av[1]);
 	return (0);
 }

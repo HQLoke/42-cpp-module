@@ -148,4 +148,20 @@ int			ClapTrap::getAttackDamage() const
 	return (this->_attackDamage);
 }
 
+void		ClapTrap::setHitPoints	( unsigned int amount )
+{
+	this->_hitPoints = amount;
+}
+
+void		ClapTrap::setEnergyPoints ( unsigned int amount )
+{
+	this->_energyPoints = amount;
+}
+
+void		ClapTrap::setAttackDamage ( unsigned int amount )
+{
+	this->_attackDamage = amount;
+}
+
+
 /* ************************************************************************** */

@@ -6,23 +6,17 @@
 
 class Brain
 {
-
 	public:
-
 		Brain();
 		Brain( Brain const & src );
 		~Brain();
 
 		Brain &		operator=( Brain const & rhs );
-
 		void		printIdeas(void) const;
 		void		setIdeas(std::string idea);
 
 	private:
 		std::string	_ideas[100];
-
 };
-
-// std::ostream &			operator<<( std::ostream & o, Brain const & i );
 
 #endif /* *********************************************************** BRAIN_H */

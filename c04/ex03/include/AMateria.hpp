@@ -9,9 +9,7 @@ class ICharacter;
 
 class AMateria
 {
-
 	public:
-
 		AMateria();
 		AMateria( std::string const & type );
 		AMateria( AMateria const & src );
@@ -25,9 +23,7 @@ class AMateria
 		void				setType ( std::string type );
 				
 	private:
-	
 		std::string			_type;
-
 };
 
 #endif /* ******************************************************** AMATERIA_H */

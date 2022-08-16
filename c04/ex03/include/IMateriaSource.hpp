@@ -7,9 +7,7 @@
 
 class IMateriaSource
 {
-
 	public:
-
 		virtual ~IMateriaSource(){};
 
 		virtual	AMateria	*createMateria	( std::string const & type ) = 0;

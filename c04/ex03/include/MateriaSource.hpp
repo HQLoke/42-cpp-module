@@ -7,9 +7,7 @@
 
 class MateriaSource : public IMateriaSource
 {
-
 	public:
-
 		MateriaSource();
 		MateriaSource( MateriaSource const & src );
 		~MateriaSource();
@@ -20,10 +18,8 @@ class MateriaSource : public IMateriaSource
 		void		learnMateria( AMateria *mat );
 
 	private:
-
 		AMateria	*_learnedMateria[4];
 		int			_numMateria;
-
 };
 
 

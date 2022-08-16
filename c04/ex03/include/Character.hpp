@@ -8,9 +8,7 @@
 
 class Character : public ICharacter
 {
-
 	public:
-
 		Character();
 		Character( std::string const & name );
 		Character( Character const & src );
@@ -25,11 +23,9 @@ class Character : public ICharacter
 		void				setName ( std::string name );
 
 	private:
-		
 		AMateria		*_materias[4];
 		std::string		_name;
 		int				_numEquip;
-
 };
 
 #endif /* ******************************************************* CHARACTER_H */

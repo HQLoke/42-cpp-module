@@ -7,23 +7,19 @@
 
 class FragTrap : public ClapTrap
 {
-
 	public:
-
 		FragTrap();
-		FragTrap(std::string const name);
+		FragTrap( std::string const name );
 		FragTrap( FragTrap const & src );
 		~FragTrap();
 
-		FragTrap &		operator=		( FragTrap const & rhs );
+		FragTrap &		operator=( FragTrap const & rhs );
 
-		void			attack			( const std::string & target );
-		void			highFivesGuys	(void);
+		void			attack( const std::string & target );
+		void			highFivesGuys(void);
 
 	private:
 
 };
-
-// std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
 
 #endif /* ******************************************************** FragTrap_H */

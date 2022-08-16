@@ -1,4 +1,5 @@
 #include "FragTrap.hpp"
+#include "colour.h"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -6,10 +7,12 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
+	std::cout << GREEN;
 	std::cout << "FragTrap: Blank constructor has been called\n";
 	ClapTrap::setHitPoints(100);
 	// ClapTrap::setEnergyPoints(100);
 	ClapTrap::setAttackDamage(30);
+	std::cout << RESET;
 }
 
 /*
@@ -18,10 +21,12 @@ FragTrap::FragTrap() : ClapTrap()
  */
 FragTrap::FragTrap(std::string const name) : ClapTrap(name)
 {
+	std::cout << GREEN;
 	std::cout << "FragTrap: String constructor has been called\n";
 	ClapTrap::setHitPoints(100);
 	ClapTrap::setEnergyPoints(100);
 	ClapTrap::setAttackDamage(30);
+	std::cout << RESET;
 }
 
 /*
@@ -29,7 +34,9 @@ FragTrap::FragTrap(std::string const name) : ClapTrap(name)
  */
 FragTrap::FragTrap( const FragTrap & src ) : ClapTrap(src)
 {
+	std::cout << GREEN;
 	std::cout << "FragTrap: Copy constructor has been called\n";
+	std::cout << RESET;
 }
 
 
@@ -44,7 +51,9 @@ FragTrap::FragTrap( const FragTrap & src ) : ClapTrap(src)
  */
 FragTrap::~FragTrap()
 {
+	std::cout << GREEN;
 	std::cout << "FragTrap: Destructor has been called\n";
+	std::cout << RESET;
 }
 
 
@@ -54,24 +63,27 @@ FragTrap::~FragTrap()
 
 FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 {
+	std::cout << GREEN;
 	std::cout << "FragTrap: Copy assignment operator has been called\n";
 	if ( this != &rhs )
 	{
 		this->ClapTrap::operator=(rhs);
 	}
+	std::cout << RESET;
 	return *this;
 }
-
-// std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+static void	deathMessage(std::string const name)
+{
+	std::cout << GREEN;
+	std::cout << "FragTrap " << name << " RIP...Let's fry him till he's toast!"
+	<< std::endl;
+	std::cout << RESET;
+}
 
 /*
  * The base-class method is shadowed by the derived class method. To use the
@@ -80,15 +92,41 @@ FragTrap &				FragTrap::operator=( FragTrap const & rhs )
  */
 void	FragTrap::attack		( const std::string & target )
 {
-	std::cout << "FragTrap " << ClapTrap::getName() 
-			  << " attacks " << target
-			  << ", causing " << ClapTrap::getAttackDamage() 
-			  << " points of damage!\n";
+	if (ClapTrap::getHitPoints() <= 0)
+		return (deathMessage(ClapTrap::getName()));
+	std::cout << GREEN;
+	if (ClapTrap::getEnergyPoints() > 0)
+	{
+		ClapTrap::setEnergyPoints(ClapTrap::getEnergyPoints() - 1);
+		std::cout << "FragTrap " << ClapTrap::getName() << " attacks " << target
+		<< ", causing " << ClapTrap::getAttackDamage() << " points of damage!\n";
+	}
+	else
+	{
+		std::cout << "FragTrap " << ClapTrap::getName() << " has ran out of energy "
+		<< "point! He can't attack anyone! Freakin' loser" << std::endl;
+	}
+	std::cout << RESET;
 }
 
 void	FragTrap::highFivesGuys	()
 {
-	std::cout << "Anyone up for a high five, guys?\n";
+	if (ClapTrap::getHitPoints() <= 0)
+		return (deathMessage(ClapTrap::getName()));
+	std::cout << GREEN;
+	if (ClapTrap::getEnergyPoints() > 0)
+	{
+		ClapTrap::setEnergyPoints(ClapTrap::getEnergyPoints() - 1);
+		std::cout << "FragTrap " << ClapTrap::getName() << " is asking for a "
+		<< "high five guys, anyone?" << std::endl;
+	}
+	else
+	{
+		std::cout << "FragTrap " << ClapTrap::getName() << " has ran out of energy "
+		<< "point! He can't even lift his hand for a high five...he's forever alone now"
+		<< std::endl;
+	}
+	std::cout << RESET;
 }
 
 /*

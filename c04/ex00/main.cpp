@@ -10,7 +10,9 @@
  */
 int	main(void)
 {
-	std::cout << "----------------------------------------------" << std::endl;
+	std::cout << "|-----------------------------------|" << std::endl;
+	std::cout << "|       Test given in the PDF       |" << std::endl;
+	std::cout << "|-----------------------------------|" << std::endl;
 
 	const Animal	*meta = new Animal();
 	const Animal	*i = new Cat();
@@ -21,13 +23,13 @@ int	main(void)
 	meta->makeSound();
 	i->makeSound();
 	j->makeSound();
-
-	std::cout << "----------------------------------------------" << std::endl;
 	
-	const WrongAnimal *nonmeta = new WrongCat();
+	std::cout << "----------------------------------------------" << std::endl;
+
+	const WrongAnimal	*nonmeta = new WrongCat();
+
+	std::cout << nonmeta->getType() << std::endl;
 	nonmeta->makeSound();
 
 	return (0);
-
-	std::cout << "----------------------------------------------" << std::endl;
 }

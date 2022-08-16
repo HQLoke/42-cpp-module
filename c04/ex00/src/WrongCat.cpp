@@ -7,7 +7,7 @@
 WrongCat::WrongCat()
 {
 	std::cout << "WrongCat: Blank constructor\n";
-	WrongAnimal::setType("Cat");
+	WrongAnimal::setType("NotACat");
 }
 
 WrongCat::WrongCat( const WrongCat & src ) : WrongAnimal(src)

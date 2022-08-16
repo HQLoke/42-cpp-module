@@ -6,9 +6,7 @@
 
 class WrongAnimal
 {
-
 	public:
-
 		WrongAnimal();
 		WrongAnimal( WrongAnimal const & src );
 		~WrongAnimal();

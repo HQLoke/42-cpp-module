@@ -7,15 +7,12 @@
 
 class Cat : public Animal
 {
-
 	public:
-
 		Cat();
 		Cat( Cat const & src );
 		~Cat();
 
 		Cat &		operator=( Cat const & rhs );
-
 		void		makeSound()	const;
 
 	private:

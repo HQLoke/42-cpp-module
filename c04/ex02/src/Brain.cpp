@@ -44,12 +44,6 @@ Brain &				Brain::operator=( Brain const & rhs )
 	return *this;
 }
 
-// std::ostream &			operator<<( std::ostream & o, Brain const & i )
-// {
-	
-// 	return o;
-// }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

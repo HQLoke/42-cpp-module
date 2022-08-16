@@ -23,6 +23,10 @@ int	main(void)
 	meta->makeSound();
 	i->makeSound();
 	j->makeSound();
+
+	delete meta;
+	delete i;
+	delete j;
 	
 	std::cout << "----------------------------------------------" << std::endl;
 
@@ -30,6 +34,8 @@ int	main(void)
 
 	std::cout << nonmeta->getType() << std::endl;
 	nonmeta->makeSound();
+
+	delete nonmeta;
 
 	return (0);
 }

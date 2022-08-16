@@ -13,12 +13,12 @@ class WrongAnimal
 
 		WrongAnimal &		operator=( WrongAnimal const & rhs );
 
-		void			makeSound()	const;
-		std::string		getType()	const;
-		void			setType( std::string type );
+		void				makeSound()	const;
+		std::string			getType()	const;
+		void				setType( std::string type );
 	
 	protected:
-		std::string		_type;
+		std::string			_type;
 
 	private:
 

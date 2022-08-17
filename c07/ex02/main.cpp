@@ -5,6 +5,9 @@
 #define MAX_VAL 750
 int main(int, char**)
 {
+	std::cout << "|----------------------------------|" << std::endl
+			  << "|       Test given in the PDF      |" << std::endl
+			  << "|----------------------------------|" << std::endl;
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -51,25 +54,28 @@ int main(int, char**)
     }
     delete [] mirror;
 
-	// Array<std::string>	classroom(5);
-	// for (int i = 0; i < 5; i += 1)
-	// {
-	// 	classroom[i] = "Ghoul";
-	// }
-	// std::cout << classroom << std::endl;
-	// classroom[2] = "Human";
-	// std::cout << classroom << std::endl;
+	std::cout << "|------------------------|" << std::endl
+			  << "|       My own test      |" << std::endl
+			  << "|------------------------|" << std::endl;
+	std::cout << "[Initialization]" << std::endl;
+	Array<std::string>	classroom(5);
+	for (int i = 0; i < 5; i += 1)
+	{
+		classroom[i] = "Ghoul";
+	}
+	std::cout << "[Value changing]" << std::endl;
+	std::cout << classroom << std::endl;
+	classroom[2] = "Human";
+	std::cout << classroom << std::endl;
 
-	// std::cout << "\n" << std::endl;
+	std::cout << "[Copy assignment operator]" << std::endl;
+	Array<std::string>	nextDoor;
+	std::cout << nextDoor << std::endl;
+	nextDoor = classroom;
+	std::cout << nextDoor << std::endl;
 
-	// Array<std::string>	nextDoor;
-	// std::cout << nextDoor << std::endl;
-	// nextDoor = classroom;
-	// std::cout << nextDoor << std::endl;
-
-	// std::cout << "\n" << std::endl;
-
-	// Array<std::string>	anotherDoor(nextDoor);
-	// std::cout << anotherDoor << std::endl;
+	std::cout << "[Copy constructor]" << std::endl;
+	Array<std::string>	anotherDoor(nextDoor);
+	std::cout << anotherDoor << std::endl;
     return 0;
 }

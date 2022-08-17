@@ -26,5 +26,7 @@ int main(void)
 	std::cout << "Pointer (deserialized): " << temp << std::endl;
 
 	std::cout << "\nData (original)    : " << original.value << std::endl;
-	std::cout << "Data (deserialized): " << original.value << std::endl;
+	std::cout << "Data (deserialized): " << temp->value << std::endl;
+
+	return (0);
 }

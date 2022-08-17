@@ -159,6 +159,7 @@ bool			Converter::_handleSpecialCase( std::string &temp )
 	const int	size = sizeof(special) / sizeof(special[0]);
 	int			i;
 
+	this->_scalarType = INVALID;
 	transform(temp.begin(), temp.end(), temp.begin(), tolower);
 	i = -1;
 	while (++i < size)	

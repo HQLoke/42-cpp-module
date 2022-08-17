@@ -1,6 +1,6 @@
 # Implicit variables
 CXX	    	=	c++
-CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic #-g3 -fsanitize=address
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic -g3 -fsanitize=address
 
 # Headers and libraries
 INC		 	=	-Iinclude

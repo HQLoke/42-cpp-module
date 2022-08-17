@@ -10,9 +10,7 @@ class Bureaucrat;
 
 class Form
 {
-
 	public:
-
 		Form();
 		Form( std::string name, bool isSigned, int gradeToSign, int gradeToExecute );
 		Form( Form const & src );
@@ -26,27 +24,23 @@ class Form
 		int			getGradeToSign() const;
 		int			getGradeToExecute() const;
 
+	private:
+		const std::string	_name;
+		bool		 		_isSigned;
+		const int		 	_gradeToSign;
+		const int		 	_gradeToExecute;
+
 		class GradeTooHighException : public std::exception
 		{
 			public:
-
 				virtual const char * what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-
 				virtual const char * what() const throw();
 		};
-
-	private:
-		
-		const std::string	_name;
-		bool		 		_isSigned;
-		const int		 	_gradeToSign;
-		const int		 	_gradeToExecute;
-
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

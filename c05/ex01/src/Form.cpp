@@ -58,7 +58,7 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 	o << "Form name: " << i.getName()
 	  << ", Signed: " << i.getIsSigned()
 	  << ", Sign grade: " << i.getGradeToSign()
-	  << ", Execute grade: " << i.getGradeToExecute() << std::endl;
+	  << ", Execute grade: " << i.getGradeToExecute();
 	return o;
 }
 

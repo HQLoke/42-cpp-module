@@ -58,7 +58,7 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 	o << "Form name: " << i.getName()
 	  << ", Signed: " << i.getIsSigned()
 	  << ", Sign grade: " << i.getGradeToSign()
-	  << ", Execute grade: " << i.getGradeToExecute() << std::endl;
+	  << ", Execute grade: " << i.getGradeToExecute();
 	return o;
 }
 
@@ -71,7 +71,11 @@ void		Form::beSigned( Bureaucrat & b )
 {
 	try
 	{
-		if (b.getGrade() <= this->getGradeToSign())
+		if (this->getIsSigned() == true)
+		{
+			throw Form::FormAlreadySignedException();
+		}
+		else if (b.getGrade() <= this->getGradeToSign())
 		{
 			this->_isSigned = true;
 			std::cout << b.getName() << " signed " << this->_name << std::endl;
@@ -131,6 +135,11 @@ int			Form::getGradeToExecute() const
 }
 
 /* ************************************************************************** */
+
+const char * Form::FormAlreadySignedException::what() const throw()
+{
+	return "Form is signed by someone already";
+}
 
 const char * Form::FormNotSignedException::what() const throw()
 {

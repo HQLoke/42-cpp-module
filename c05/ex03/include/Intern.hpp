@@ -9,9 +9,7 @@
 
 class Intern
 {
-
 	public:
-
 		Intern();
 		~Intern();
 

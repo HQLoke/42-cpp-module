@@ -7,11 +7,28 @@
 
 int main(void)
 {
-	Intern nani;
-	Form *heh;
+	Intern	pam;
+	Form	*formZ;
 
-	heh = nani.makeForm("presidential pardon", "bob");
-	// std::cout << *heh;
-	delete heh;
+	formZ = pam.makeForm("presidential pardon", "dwight");
+	if (formZ != NULL)
+		std::cout << *formZ << std::endl;
+	delete formZ;
+
+	formZ = pam.makeForm("robotomy request", "dwight");
+	if (formZ != NULL)
+		std::cout << *formZ << std::endl;
+	delete formZ;
+
+	formZ = pam.makeForm("shrubbery creation", "dwight");
+	if (formZ != NULL)
+		std::cout << *formZ << std::endl;
+	delete formZ;
+
+	formZ = pam.makeForm("I want to fire someone", "dwight");
+	if (formZ != NULL)
+		std::cout << *formZ << std::endl;
+	delete formZ;
+	
 	return (0);
 }

@@ -8,9 +8,7 @@
 
 class RobotomyRequestForm : public Form
 {
-
 	public:
-
 		RobotomyRequestForm();
 		RobotomyRequestForm( std::string target );
 		RobotomyRequestForm( RobotomyRequestForm const & src );
@@ -19,9 +17,7 @@ class RobotomyRequestForm : public Form
 		bool	execute( Bureaucrat const & executor ) const;
 
 	private:
-
 		std::string		_target;
-
 };
 
 #endif /* ********************************************* ROBOTOMYREQUESTFORM_H */

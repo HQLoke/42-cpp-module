@@ -10,9 +10,7 @@ class Form;
 
 class Bureaucrat
 {
-
 	public:
-
 		Bureaucrat();
 		Bureaucrat( std::string const name, int grade );
 		Bureaucrat( Bureaucrat const & src );
@@ -29,25 +27,21 @@ class Bureaucrat
 		void				setGrade( int grade );
 		void				setName	( std::string const name );
 
+	private:
+		int					_grade;
+		std::string 		_name;
+
 		class GradeTooHighException : public std::exception
 		{
 			public:
-
 				virtual const char * what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-
 				virtual const char * what() const throw();
 		};
-
-	private:
-
-		int					_grade;
-		std::string 		_name;
-
 };
 
 std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i );

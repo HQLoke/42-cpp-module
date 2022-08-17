@@ -37,7 +37,7 @@ Form *		Intern::makeForm( std::string formName, std::string target )
 
 	newForm = NULL;
 	i = -1;
-	while (i++ < size)
+	while (++i < size)
 	{
 		if (formName == form[i])
 			break ;

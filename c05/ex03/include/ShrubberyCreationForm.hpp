@@ -8,9 +8,7 @@
 
 class ShrubberyCreationForm : public Form
 {
-
 	public:
-
 		ShrubberyCreationForm();
 		ShrubberyCreationForm( std::string target );
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
@@ -19,9 +17,7 @@ class ShrubberyCreationForm : public Form
 		bool	execute( Bureaucrat const & executor ) const;
 
 	private:
-
 		std::string		_target;
-
 };
 
 #endif /* ******************************************* SHRUBBERYCREATIONFORM_H */

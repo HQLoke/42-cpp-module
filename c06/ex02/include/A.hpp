@@ -8,7 +8,6 @@
 class A : public Base
 {
 	public:
-
 		A();
 		A( A const & src );
 		~A();

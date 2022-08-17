@@ -1,6 +1,6 @@
 # Implicit variables
 CXX	    	=	c++
-CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic #-g3 -fsanitize=address
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic -g3 -fsanitize=address
 
 # Headers and libraries
 INC		 	=	-Iinclude
@@ -41,6 +41,7 @@ clean:
 	@printf "$(NEWLINE)$(RED)Removing object files...\n$(RESET)"
 	@$(RM) -rf $(OBJDIR)
 	@$(RM) -rf *.dSYM
+	@$(RM) *_shrubbery
 
 fclean: clean
 	@printf "$(NEWLINE)$(RED)Removing $(EXEC)...\n$(RESET)"

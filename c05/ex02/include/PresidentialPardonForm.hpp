@@ -7,9 +7,7 @@
 
 class PresidentialPardonForm : public Form
 {
-
 	public:
-
 		PresidentialPardonForm();
 		PresidentialPardonForm( std::string target );
 		PresidentialPardonForm( PresidentialPardonForm const & src );
@@ -17,15 +15,8 @@ class PresidentialPardonForm : public Form
 
 		bool	execute( Bureaucrat const & executor ) const;
 
-		std::string   nanidafuq()
-		{
-			return this->_target;
-		}
-
 	private:
-
 		std::string		_target;
-
 };
 
 #endif /* ****************************************** PRESIDENTIALPARDONFORM_H */

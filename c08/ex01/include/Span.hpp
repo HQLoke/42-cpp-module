@@ -16,6 +16,7 @@ class Span
 		~Span();
 		Span &			operator=( Span const & rhs );
 		void			addNumber( int val );
+		bool			hasDuplicates() const;
 		int				longestSpan() const;
 		int				shortestSpan() const;
 		unsigned int	getMaxSize() const;
@@ -28,7 +29,7 @@ class Span
 
 			insertSize = end - begin;
 			if (this->_size + insertSize > this->_maxSize)
-				throw Span::NoSpanException();
+				throw Span::SizeLimitException();
 			this->_size += insertSize;
 			this->_vec.insert(this->_vec.begin(), begin, end);
 		}

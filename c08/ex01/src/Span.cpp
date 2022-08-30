@@ -60,6 +60,17 @@ void	Span::addNumber( int val )
 	this->_size += 1;
 }
 
+bool	Span::hasDuplicates() const
+{
+	std::vector<int>	copyVec;
+	bool				ret;
+
+	copyVec = this->_vec;
+	std::sort(copyVec.begin(), copyVec.end());
+	ret = std::adjacent_find(copyVec.begin(), copyVec.end()) != copyVec.end();
+	return (ret);
+}
+
 int		Span::longestSpan() const
 {
 	int	min;

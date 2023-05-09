@@ -1,6 +1,0 @@
-These links explain why use initialization lists instead of the constructor
-body, and how to use it correctly.
-
-1) https://www.cprogramming.com/tutorial/initialization-lists-c++.html
-2) https://stackoverflow.com/questions/61491704/c-class-must-explicitly-initialize-the-member
-3) https://stackoverflow.com/questions/31488756/explicitly-initialize-member-which-does-not-have-a-default-constructor

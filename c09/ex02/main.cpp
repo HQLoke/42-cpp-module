@@ -42,9 +42,11 @@ int	main(int argc, char *argv[])
 	std::vector<int>	vec;
 	unsigned int		temp;
 	unsigned			num_elem;
+	std::size_t			found;
 
 	num_elem = 0;
-	if (argc == 2)
+	found = std::string(argv[1]).find(".txt");
+	if (argc == 2 && found != std::string::npos)
 	{
 		std::ifstream	input(argv[1]);
 		std::string		token;
@@ -69,29 +71,41 @@ int	main(int argc, char *argv[])
 
 	/* ---------------------------------------------------------------- */
 
-	// std::cout << "Before: ";
-	// std::deque<int>::iterator	it = deq.begin();
-	// for (; it != deq.end(); it++)
-	// 	std::cout << *it << " ";
-	// std::cout << "\n";
+	std::cout << "Before: ";
+	std::deque<int>::iterator	it = deq.begin();
+	for (; it != deq.end(); it++)
+		std::cout << *it << " ";
+	std::cout << "\n";
 
 	/* ---------------------------------------------------------------- */
 
-	struct timespec	begin, end;
+	struct timespec	begin1, end1;
+	struct timespec	begin2, end2;
 
-	clock_gettime(CLOCK_REALTIME, &begin);
+	clock_gettime(CLOCK_REALTIME, &begin1);
 	PmergeMe::Sort(deq);
-	clock_gettime(CLOCK_REALTIME, &end);
+	clock_gettime(CLOCK_REALTIME, &end1);
+
+	clock_gettime(CLOCK_REALTIME, &begin2);
+	PmergeMe::Sort(vec);
+	clock_gettime(CLOCK_REALTIME, &end2);
+
+	/* ---------------------------------------------------------------- */
+
+	std::cout << "After: ";
+
+	it = deq.begin();
+	for (; it != deq.end(); it++)
+		std::cout << *it << " ";
+	std::cout << "\n";
+
+	/* ---------------------------------------------------------------- */
 
 	std::cout << "Time to process a range of " << num_elem << " elements with std::deque :  "
-	<< timeDiff(begin, end) << " us" << std::endl;
-
-	clock_gettime(CLOCK_REALTIME, &begin);
-	PmergeMe::Sort(vec);
-	clock_gettime(CLOCK_REALTIME, &end);
+	<< timeDiff(begin1, end1) << " us" << std::endl;
 
 	std::cout << "Time to process a range of " << num_elem << " elements with std::vector : "
-	<< timeDiff(begin, end) << " us" << std::endl;
+	<< timeDiff(begin2, end2) << " us" << std::endl;
 
 	return (0);
 }

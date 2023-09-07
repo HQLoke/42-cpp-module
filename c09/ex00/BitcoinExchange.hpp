@@ -1,22 +1,18 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
-#include <fstream>
-#include <iostream>
 #include <map>
-#include <sstream>
 #include <string>
-#include <utility>
-#include "stdlib.h"
 
 class BitcoinExchange
 {
 	public:
 		BitcoinExchange();
-		virtual ~BitcoinExchange();
+		~BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &other);
-		BitcoinExchange& operator=(const BitcoinExchange &other);
+		BitcoinExchange&	operator=(const BitcoinExchange &other);
 		
+		void	LoadData(const char *filename);
 		float	GetPrice(const std::string date);
 
 	private:

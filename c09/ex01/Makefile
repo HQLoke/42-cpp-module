@@ -1,20 +1,21 @@
-NAME    :=  RPN
+NAME    	:=  RPN
+	
+CXX     	:=  c++ 
+CXXFLAGS	:=  -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
-CPP     :=  g++ -Wall -Wextra -Werror -std=c++98
-
-MAIN	:=	main.cpp
-SRCS    :=  RPN.cpp
-OBJS    :=  $(SRCS:.cpp=.o)
+MAIN		:=	main.cpp
+SRCS    	:=  RPN.cpp
+OBJS    	:=  $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(MAIN) $(OBJS)
-	@$(CPP) $(MAIN) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(MAIN) $(OBJS) -o $(NAME)
 
 clean:
-	@rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

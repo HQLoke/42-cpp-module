@@ -1,5 +1,14 @@
 #include "PmergeMe.hpp"
 
+#include <deque>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
 unsigned int	isPositiveInt(const char *token)
 {
 	int	len;

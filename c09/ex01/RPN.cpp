@@ -1,8 +1,11 @@
 #include "RPN.hpp"
 
-RPN::RPN(const std::string equation)
+/*
+**	Constructor, destructor, copy constructor, copy assignment operator
+*/
+
+RPN::RPN()
 {
-	this->_equation = equation;
 }
 
 RPN::~RPN()
@@ -11,12 +14,12 @@ RPN::~RPN()
 
 RPN::RPN(const RPN &other)
 {
-	this->_equation = other._equation;
+	(void)other;
 }
 
 RPN&	RPN::operator=(const RPN &other)
 {
-	this->_equation = other._equation;
+	(void)other;
 	return (*this);
 }
 

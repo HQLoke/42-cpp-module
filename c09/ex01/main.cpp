@@ -1,4 +1,9 @@
 #include "RPN.hpp"
+#include <climits>
+#include <iostream>
+#include <sstream>
+#include <stack>
+#include <string>
 
 int	main(int argc, char *argv[])
 {

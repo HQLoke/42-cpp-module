@@ -1,20 +1,21 @@
-NAME    :=  btc
+NAME    	:=  btc
 
-CPP     :=  g++ -Wall -Wextra -Werror -std=c++98
+CXX     	:=  c++ 
+CXXFLAGS	:=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
-MAIN	:=	main.cpp
-SRCS    :=  BitcoinExchange.cpp
-OBJS    :=  $(SRCS:.cpp=.o)
+MAIN		:=	main.cpp
+SRCS    	:=  BitcoinExchange.cpp
+OBJS    	:=  $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(MAIN) $(OBJS)
-	@$(CPP) $(MAIN) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(MAIN) $(OBJS) -o $(NAME)
 
 clean:
-	@rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

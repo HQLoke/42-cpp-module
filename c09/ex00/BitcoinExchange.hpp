@@ -12,8 +12,10 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange &other);
 		BitcoinExchange&	operator=(const BitcoinExchange &other);
 		
+		float	GetPrice(const std::string &date);
 		void	LoadData(const char *filename);
-		float	GetPrice(const std::string date);
+		bool	ParseDate(const std::string &date);
+		bool	ParseValue(const std::string &value);
 
 	private:
 		std::map<std::string, float>	_priceData;

@@ -14,7 +14,7 @@ int	main(int argc, char *argv[])
 
 	BitcoinExchange		btc;
 	std::ifstream		in_file(argv[1]);
-	std::string 		line, date, separator, amount;
+	std::string 		line;
 
 	if (!in_file)
 	{
@@ -25,19 +25,32 @@ int	main(int argc, char *argv[])
 	try
 	{
 		btc.LoadData("./data/data.csv");
-
-		std::getline(in_file, line);
-		while (std::getline(in_file, line))
-		{
-			std::istringstream	iss(line);
-			iss >> date >> separator >> amount;
-
-			std::cout << date + "  ,  " + separator + "  ,  " + amount << std::endl; 
-		}
 	}
 	catch (const char *err)
 	{
 		std::cout << err << std::endl;
+		return (1);
+	}
+
+	std::getline(in_file, line);
+	while (std::getline(in_file, line))
+	{
+		try
+		{
+			std::istringstream	iss(line);
+			std::string			date, separator, amount;
+			float				price;
+
+			iss >> date >> separator >> amount;
+			if (btc.ParseDate(date) == true)
+				price = btc.GetPrice(date);
+			btc.ParseValue(amount);
+			std::cout << date << " => " << amount << " = " << price * atof(amount.c_str()) << std::endl; 
+		}
+		catch (const char *err)
+		{
+			std::cout << err << std::endl;
+		}
 	}
 	return (0);
 }

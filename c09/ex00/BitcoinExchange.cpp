@@ -6,9 +6,7 @@
 #include "stdlib.h"
 #include "string.h"
 
-bool	is_leap_year(int year);
-bool	is_valid_date(const std::string &date);
-bool	is_valid_value(const std::string value);
+static bool	is_leap_year(int year);
 
 /*
 **	Constructor, destructor, copy constructor, copy assignment operator
@@ -37,6 +35,23 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
 **	Methods
 */
 
+float	BitcoinExchange::GetPrice(const std::string &date)
+{
+	std::map<std::string, float>::iterator	it;
+
+	it = _priceData.find(date); 
+	if (it != _priceData.end())
+		return (it->second);
+	else
+	{
+		it = _priceData.lower_bound(date);
+		if (it == _priceData.begin() || it == _priceData.end())
+			throw ("Price history is not available on that date.");
+		--it;
+		return (it->second);
+	}
+}
+
 void	BitcoinExchange::LoadData(const char *filename)
 {
 	std::ifstream		input(filename);
@@ -53,33 +68,13 @@ void	BitcoinExchange::LoadData(const char *filename)
 		std::getline(line_stream, date, ',');
 		std::getline(line_stream, value);
 
-		if (is_valid_date(date) == true)
+		if (ParseDate(date) == true)
 			_priceData.insert(std::pair<std::string, float>(date, atof(value.c_str())));
 	}
-
 	input.close();
 }
 
-float	BitcoinExchange::GetPrice(const std::string date)
-{
-	is_valid_date(date);
-	return (-1);
-}
-
-/*
-**	Functions
-*/
-
-bool	is_leap_year(int year)
-{
-	if (year % 4 == 0 && year % 100 != 0)
-		return (true);
-	else if (year % 400 == 0)
-		return (true);
-	return (false);
-}
-
-bool	is_valid_date(const std::string &date)
+bool	BitcoinExchange::ParseDate(const std::string &date)
 {
 	std::istringstream	iss(date);
 	int		year, month, day;
@@ -108,7 +103,7 @@ bool	is_valid_date(const std::string &date)
 	return (true);
 }
 
-bool	is_valid_value(const std::string value)
+bool	BitcoinExchange::ParseValue(const std::string &value)
 {
 	float	temp;
 
@@ -123,4 +118,17 @@ bool	is_valid_value(const std::string value)
 		throw ("Error: too large a number.");
 
 	return (true);
+}
+
+/*
+**	Functions
+*/
+
+static bool	is_leap_year(int year)
+{
+	if (year % 4 == 0 && year % 100 != 0)
+		return (true);
+	else if (year % 400 == 0)
+		return (true);
+	return (false);
 }

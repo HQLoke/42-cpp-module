@@ -9,23 +9,63 @@
 #include <string.h>
 #include <time.h>
 
-unsigned int	isPositiveInt(const char *token)
+template<typename T>
+void	merge(T& container, int left, int mid, int right)
 {
-	int	len;
+	int	n1 = mid - left + 1;
+	int n2 = right - mid;
 
-	len = strlen(token);
-	for (int i = 0; i < len; i += 1)
+	int	left_arr[n1], right_arr[n2];
+
+	for (int i = 0; i < n1; i += 1)
+		left_arr[i] = container[left + i];
+	for (int i = 0; i < n2; i += 1)
+		right_arr[i] = container[mid + 1 + i];
+
+	int i = 0, j = 0, k = left;
+	while (i < n1 && j < n2)
 	{
-		if (token[i] < '0' || token[i] > '9')
+		if (left_arr[i] <= right_arr[j])
 		{
-			std::cout << "Error" << std::endl;
-			exit (1);
+			container[k] = left_arr[i];
+			i += 1;
 		}
+		else
+		{
+			container[k] = right_arr[j];
+			j += 1;
+		}
+		k += 1;
 	}
-	return (atoi(token));
+
+	while (i < n1)
+	{
+		container[k] = left_arr[i];
+		i += 1;
+		k += 1;
+	}
+
+	while (j < n2)
+	{
+		container[k] = right_arr[j];
+		j += 1;
+		k += 1;
+	}
 }
 
-double			timeDiff(struct timespec begin, struct timespec end)
+template<typename T>
+void	merge_sort(T& container, int left, int right)
+{
+	if (left < right)
+	{
+		int	mid = (left + right) / 2;
+		merge_sort(container, left, mid);
+		merge_sort(container, mid + 1, right);
+		merge(container, left, mid, right);
+	}
+}
+
+double	time_diff(const struct timespec &begin, const struct timespec &end)
 {
 	long	seconds;
 	long	nanoseconds;
@@ -35,6 +75,21 @@ double			timeDiff(struct timespec begin, struct timespec end)
 	nanoseconds = end.tv_nsec - begin.tv_nsec;
 	elapsed = seconds * 1e9 + nanoseconds;
 	return (elapsed * 1e-3);
+}
+
+bool	verify_input(const char *token)
+{
+	for (size_t i = 0; i < strlen(token); i +=1)
+	{
+		if (isdigit(token[i]) == false)
+		{
+			if (i == 0 && token[i] == '-')
+				throw ("Error: negative value is not allowed.");
+			else
+				throw ("Error: forbidden character found.");
+		}
+	}
+	return (true);
 }
 
 int	main(int argc, char *argv[])
@@ -47,42 +102,31 @@ int	main(int argc, char *argv[])
 
 	/* ---------------------------------------------------------------- */
 
-	std::deque<int>		deq;
-	std::vector<int>	vec;
-	unsigned int		temp;
-	unsigned			num_elem;
-	std::size_t			found;
+	std::deque<int>				deq;
+	std::vector<int>			vec;
+	std::deque<int>::iterator	it;
 
-	num_elem = 0;
-	found = std::string(argv[1]).find(".txt");
-	if (argc == 2 && found != std::string::npos)
-	{
-		std::ifstream	input(argv[1]);
-		std::string		token;
-		while (getline(input, token, ' '))
-		{
-			temp = isPositiveInt(token.c_str());
-			deq.push_back(temp);
-			vec.push_back(temp);
-			num_elem += 1;
-		}
-	}
-	else
+	try
 	{
 		for (int i = 1; i < argc; i += 1)
 		{
-			temp = isPositiveInt(argv[i]);
-			deq.push_back(temp);
-			vec.push_back(temp);
+			if (verify_input(argv[i]) == true)
+			{
+				deq.push_back(atoi(argv[i]));
+				vec.push_back(atoi(argv[i]));
+			}
 		}
-		num_elem = argc - 1;
+	}
+	catch (const char *err)
+	{
+		std::cout << err << std::endl;
+		exit (1);
 	}
 
 	/* ---------------------------------------------------------------- */
 
 	std::cout << "Before: ";
-	std::deque<int>::iterator	it = deq.begin();
-	for (; it != deq.end(); it++)
+	for (it = deq.begin(); it != deq.end(); it++)
 		std::cout << *it << " ";
 	std::cout << "\n";
 
@@ -92,29 +136,27 @@ int	main(int argc, char *argv[])
 	struct timespec	begin2, end2;
 
 	clock_gettime(CLOCK_REALTIME, &begin1);
-	PmergeMe::Sort(deq);
+	merge_sort(deq, 0, deq.size() - 1);
 	clock_gettime(CLOCK_REALTIME, &end1);
 
 	clock_gettime(CLOCK_REALTIME, &begin2);
-	PmergeMe::Sort(vec);
+	merge_sort(vec, 0, vec.size() - 1);
 	clock_gettime(CLOCK_REALTIME, &end2);
 
 	/* ---------------------------------------------------------------- */
 
 	std::cout << "After: ";
-
-	it = deq.begin();
-	for (; it != deq.end(); it++)
+	for (it = deq.begin(); it != deq.end(); it++)
 		std::cout << *it << " ";
 	std::cout << "\n";
 
 	/* ---------------------------------------------------------------- */
 
-	std::cout << "Time to process a range of " << num_elem << " elements with std::deque :  "
-	<< timeDiff(begin1, end1) << " us" << std::endl;
+	std::cout << "Time to process a range of " << deq.size() << " elements with std::deque :  "
+	<< time_diff(begin1, end1) << " us" << std::endl;
 
-	std::cout << "Time to process a range of " << num_elem << " elements with std::vector : "
-	<< timeDiff(begin2, end2) << " us" << std::endl;
+	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : "
+	<< time_diff(begin2, end2) << " us" << std::endl;
 
 	return (0);
 }
